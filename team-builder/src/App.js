@@ -9,7 +9,9 @@ import Team from "./Components/Team"
 
 function App() {
 
-  const [teamData, setTeamData] = useState(Datas)
+  const [teamData, setTeamData] = useState(Datas);
+
+  const [memberToEdit, setMemberToEdit] = useState();
 
   console.log(teamData);
  
@@ -24,7 +26,7 @@ const addNewTeamMember = member => {
     <div className="App">
      <h1>Team Builder!</h1>
     
-    <Team teamData ={teamData}/>
+    <Team teamData ={teamData} memberToEdit = {memberToEdit}/>
     <TeamForm  addNewTeamMember = {addNewTeamMember} />
 
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 
 const TeamForm = props => {
@@ -20,6 +20,12 @@ const TeamForm = props => {
         props.addNewTeamMember(newTeamData);
         setNewTeamData({ name: "", email: "", role: "" });
       };
+
+useEffect(() => {
+const setEdit = edit => {
+props.memberToEdit = newTeamData;
+}
+})
 
 return (
 <form onSubmit = {submitForm}>
