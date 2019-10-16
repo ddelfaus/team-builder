@@ -12,15 +12,17 @@ const TeamForm = props => {
     
      
     const onInputChange = event => {
-        setNewTeamData({
-            ...newTeamData,
-            [event.target.name]: event.target.value,
+        setNewTeamData({ ...newTeamData, [event.target.name]: event.target.value,
         })
     }
- 
+    const submitForm = event => {
+        event.preventDefault();
+        props.addNewTeamMember(newTeamData);
+        setNewTeamData({ name: "", email: "", role: "" });
+      };
 
 return (
-<form>
+<form onSubmit = {submitForm}>
     <input
         name ="name"
         id = "name"
@@ -44,7 +46,7 @@ return (
         placeholder ="role"
          onChange = {onInputChange}
     />
-
+        <button type ="submit">Save Team Member</button>
 
 </form>
 

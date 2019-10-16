@@ -13,11 +13,8 @@ function App() {
 
   console.log(teamData);
  
-const onInputChange = event => {
-    setTeamData({
-        ...teamData,
-        [event.target.name]: event.target.value,
-    })
+const addNewTeamMember = member => {
+  setTeamData([...teamData, member])
 }
 
 
@@ -28,7 +25,7 @@ const onInputChange = event => {
      <h1>Team Builder!</h1>
     
     <Team teamData ={teamData}/>
-    <TeamForm />
+    <TeamForm  addNewTeamMember = {addNewTeamMember} />
 
     </div>
   );
