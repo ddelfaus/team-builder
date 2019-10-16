@@ -4,8 +4,20 @@ import {useState} from 'react';
 
 const TeamForm = props => {
 
-
-
+    const [newTeamData, setNewTeamData] = useState({
+        name: '',
+        email: '',
+        role: ''
+      });
+    
+     
+    const onInputChange = event => {
+        setNewTeamData({
+            ...newTeamData,
+            [event.target.name]: event.target.value,
+        })
+    }
+ 
 
 return (
 <form>
@@ -14,6 +26,7 @@ return (
         id = "name"
         type = "text"
         placeholder ="name"
+         onChange = {onInputChange}
 
     />
     <input
@@ -21,7 +34,7 @@ return (
         id = "email"
         type = "text"
         placeholder ="email"
-
+        onChange = {onInputChange}
     />
 
 <input
@@ -29,7 +42,7 @@ return (
         id = "role"
         type = "text"
         placeholder ="role"
-
+         onChange = {onInputChange}
     />
 
 
